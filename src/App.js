@@ -1,3 +1,4 @@
+import { v4 as uuidv4} from 'uuid';
 import { useState } from 'react';
 import Header from './components/Header';
 import FeedbackList from './components/FeedbackList';
@@ -8,6 +9,12 @@ import FeedbackData from './data/FeedbackData';
 function App() {
 
   const [feedback, setFeedback] = useState(FeedbackData);
+
+  const addFeedback = (newFeedback) => {
+    //Generate an unique ID with UUID - It throws a string, not a number, that's why we need the +
+    newFeedback.id = uuidv4(); 
+    setFeedback([newFeedback, ...feedback])
+  }
 
   /* We call this function here because the data is in App */
   const deleteFeedback = (id) => {
@@ -20,7 +27,7 @@ function App() {
     <>
       <Header />
       <div className="container">
-        <FeedbackForm />
+        <FeedbackForm handleAdd={addFeedback}/>
         <FeedbackStats feedback={feedback} />
         <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
       </div>
