@@ -9,6 +9,7 @@ import FeedbackForm from './components/FeedbackForm';
 import FeedbackData from './data/FeedbackData';
 import AboutIconLink from './components/AboutIconLink';
 import AboutPage from './pages/AboutPage';
+import Post from './components/Post';
 
 function App() {
 
@@ -40,7 +41,9 @@ function App() {
             </>
           }>
           </Route>
-          <Route path='about' element={<AboutPage />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/post/*' element={<Post />} />
+          {/* <Route path='/post/:id/:name' element={<Post />} /> */}
         </Routes>
 
         {/* Example of using NavLink */}

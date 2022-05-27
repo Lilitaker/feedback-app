@@ -188,6 +188,9 @@ input:focus {
 .about-link {
   display: flex;
   justify-content: flex-end;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
 /* FIX: Remove position: absolute to keep about icon at the bottom of the document */
@@ -208,10 +211,11 @@ input:focus {
   margin: 10px 0;
 }
 
-.active {
+/* Example of NavLink */
+/* .active {
   background-color: #000;
   color: red;
-}
+} */
 
 /* ====================================
 ============ MEDIA QUERIES  ===========
