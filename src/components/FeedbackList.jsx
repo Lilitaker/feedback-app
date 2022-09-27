@@ -1,16 +1,29 @@
-//import { motion, AnimatePresence } from 'framer-motion';
 //import PropTypes from 'prop-types';
+//import { motion, AnimatePresence } from 'framer-motion';
+
 import { useContext } from 'react';
+
+/* Components */
 import FeedbackItem from './FeedbackItem';
+
+/* Other */
 import FeedbackContext from '../context/FeedbackContext';
 
 const FeedbackList = () => {
+  const { feedback } = useContext(FeedbackContext);
 
-  const {feedback} = useContext(FeedbackContext);
-  
-  if(!feedback || feedback.length === 0) {
-    return <p>No feedback yet</p>
+  if (!feedback || feedback.length === 0) {
+    return <p>No feedback yet</p>;
   }
+
+  /* Version without the animation */
+  return (
+    <div className='feedback-list'>
+      {feedback.map((item) => (
+        <FeedbackItem key={item.id} item={item} />
+      ))}
+    </div>
+  );
 
   /* Version with the animation */
   /* return (
@@ -33,22 +46,11 @@ const FeedbackList = () => {
       </AnimatePresence>
     </div>
   ) */
+};
 
-  /* Version without the animation */
-  return (
-    <div className="feedback-list">
-      {feedback.map((item) => (
-        <FeedbackItem 
-          key={item.id} 
-          item={item} 
-          />
-      ))}
-    </div>
-  )
-}
-
-/* Just with useState and feedback as a prop */
-/* FeedbackList.propTypes = {
+//Version just with useState and feedback as a prop, no needed with context
+/* 
+FeedbackList.propTypes = {
   feedback: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -57,6 +59,6 @@ const FeedbackList = () => {
     })
   )
 }
- */
+*/
 
 export default FeedbackList;

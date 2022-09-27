@@ -1,22 +1,22 @@
 import { useState, useContext, useEffect } from 'react';
+
+/* Other */
 import FeedbackContext from '../context/FeedbackContext';
 
-const RatingSelect = ({
-  select
-}) => {
-
+const RatingSelect = ({ select }) => {
   const [selected, setSelected] = useState(10);
 
   const { feedbackEdit } = useContext(FeedbackContext);
 
+  /* Bring item's rating to UI form */
   useEffect(() => {
-    setSelected(feedbackEdit.item.rating)
+    setSelected(feedbackEdit.item.rating);
   }, [feedbackEdit]);
 
   const handleChange = (e) => {
-    setSelected(+e.currentTarget.value)
-    select(+e.currentTarget.value)
-  }
+    setSelected(+e.currentTarget.value);
+    select(+e.currentTarget.value);
+  };
 
   return (
     <div>
@@ -36,7 +36,7 @@ const RatingSelect = ({
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default RatingSelect;

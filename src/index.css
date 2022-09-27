@@ -17,11 +17,9 @@ ul {
   list-style: none;
 }
 
-.container {
-  max-width: 768px;
-  margin: auto;
-  padding: 0 20px;
-}
+/* ==============================================
+===================== HEADER ====================
+================================================= */
 
 header {
   display: flex;
@@ -32,11 +30,25 @@ header {
   margin-bottom: 30px;
 }
 
+/* ==============================================
+===================== APP =======================
+================================================= */
+
+.container {
+  max-width: 768px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ==============================================
+===================== CARD ======================
+================================================= */
+
 .card {
-  border-radius: 15px;
+  position: relative;
   padding: 40px 50px;
   margin: 20px 0;
-  position: relative;
+  border-radius: 15px;
   background-color: #fff;
   color: #333;
 }
@@ -52,6 +64,10 @@ header {
   text-align: center;
 }
 
+/* ==============================================
+=================== RATING SELECT ===============
+================================================= */
+
 .rating {
   display: flex;
   justify-content: space-around;
@@ -59,36 +75,16 @@ header {
   margin: 30px 0 40px;
 }
 
-.rating li,
-.num-display {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  border: 1px #eee solid;
-  border-radius: 50%;
-  padding: 10px;
-  background: #f4f4f4;
-  font-size: 19px;
-  text-align: center;
-  transition: 0.3s;
-}
-
 .rating li label {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  padding: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 50%;
   cursor: pointer;
   transform: translate(-50%, -50%);
-}
-
-.rating li:hover,
-.num-display {
-  background: #ff6a95;
-  color: #fff;
 }
 
 [type='radio'] {
@@ -100,12 +96,64 @@ header {
   color: #fff;
 }
 
+/* ==============================================
+===== RATING SELECT / FEEDBACK ITEM (NUMBER) ====
+================================================= */
+
+.rating li,
+.num-display {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border: 1px #eee solid;
+  border-radius: 50%;
+  background: #f4f4f4;
+  font-size: 19px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.rating li:hover,
+.num-display {
+  background: #ff6a95;
+  color: #fff;
+}
+
+/* ==============================================
+================== FEEDBACK ITEM ================
+================================================= */
+
+.num-display {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.close,
+.edit {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.edit {
+  right: 40px;
+}
+
+/* ==============================================
+================== FEEDBACK FORM ================
+================================================= */
+
 .input-group {
   display: flex;
   flex-direction: row;
+  padding: 8px 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 8px 10px;
 }
 
 input {
@@ -118,6 +166,16 @@ input:focus {
   outline: none;
 }
 
+.message {
+  padding-top: 10px;
+  color: rebeccapurple;
+  text-align: center;
+}
+
+/* ==============================================
+================== FEEDBACK STATS ===============
+================================================= */
+
 .feedback-stats {
   display: flex;
   justify-content: space-between;
@@ -125,25 +183,9 @@ input:focus {
   color: #fff;
 }
 
-.num-display {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-}
-
-.close,
-.edit {
-  border: none;
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  cursor: pointer;
-  background: none;
-}
-
-.edit {
-  right: 40px;
-}
+/* ==============================================
+====================== BUTTON ===================
+================================================= */
 
 .btn {
   height: 40px;
@@ -178,22 +220,15 @@ input:focus {
   opacity: 1;
 }
 
-.message {
-  padding-top: 10px;
-  color: rebeccapurple;
-  text-align: center;
-}
+/* ==============================================
+================= ABOUT ICON LINK ===============
+================================================= */
 
-/* FIX: Remove position: absolute to keep about icon at the bottom of the document */
 .about-link {
   display: flex;
   justify-content: flex-end;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
 }
 
-/* FIX: Remove position: absolute to keep about icon at the bottom of the document */
 .about-link a {
   color: #fff;
   cursor: pointer;
@@ -222,6 +257,9 @@ input:focus {
 ======================================= */
 
 @media (max-width: 600px) {
+  /* ===========================================
+  ================ RATING SELECT ===============
+  ============================================== */
   .rating li {
     margin: 10px 3px;
   }
@@ -233,6 +271,10 @@ input:focus {
     flex-wrap: wrap;
     margin: 30px 0 40px;
   }
+
+  /* ==============================================
+================== FEEDBACK FORM ================
+================================================= */
 
   .input-group input {
     width: 80%;
